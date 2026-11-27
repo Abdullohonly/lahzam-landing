@@ -71,7 +71,7 @@
   // telefondagi menyu: oq fon suriladi
   const dk = document.getElementById('sdock'), ind = document.getElementById('sind'), tabs = [...dk.querySelectorAll('span:not(.s-ind):not(.plus)')]; let ti = 0;
   const putInd = () => { const t = tabs[ti]; ind.style.left = t.offsetLeft + 'px'; ind.style.width = t.offsetWidth + 'px'; tabs.forEach((x, i) => x.classList.toggle('on', i === ti)); };
-  putInd(); setInterval(() => { ti = (ti + 1) % tabs.length; putInd(); }, 2400);
+  putInd(); addEventListener('resize', putInd); document.fonts && document.fonts.ready.then(putInd); setInterval(() => { ti = (ti + 1) % tabs.length; putInd(); }, 2400);
 
   // kun savoli: savol yoziladi, javoblar paydo bo'ladi
   const QS = [['Bugun sizni nima xursand qildi?', [['Madina', 'Onam pishirgan palov 😋'], ['Jasur', 'Imtihondan o‘tdim!'], ['Aziza', 'Ertalabki qor ❄️']]],
