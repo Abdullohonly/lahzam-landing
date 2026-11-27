@@ -1,0 +1,5 @@
+# Lahzam — tanishtiruv sahifasi
+User-agent: *
+Allow: /
+
+Sitemap: https://lahzam.uz/sitemap.xml
