@@ -6,3 +6,4 @@ lahzam.uz uchun statik tanishtiruv sahifasi. Ilovaning o'zi alohida repo'da (app
 - `main.js` — animatsiyalar, 3D sahna, tungi rejim
 - `theme.js` — mavzuni sahifa chizilishidan oldin qo'yadi
 - `vercel.json` — xavfsizlik sarlavhalari (CSP va boshqalar)
+
