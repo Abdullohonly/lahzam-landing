@@ -46,21 +46,8 @@
   if (document.readyState === 'complete') hideLd(); else addEventListener('load', () => (document.fonts ? document.fonts.ready : Promise.resolve()).then(hideLd));
   setTimeout(hideLd, 3500);
 
-  // 🎛 3D sahna: kompyuterda sichqonchaga, telefonda giroskop va scroll'ga qarab buriladi
-  const ph = document.getElementById('phone'), stage = document.getElementById('stage'), glare = document.getElementById('glare');
-  const base = () => innerWidth < 900 ? { y: -8, x: 6 } : { y: -18, x: 8 };
-  let tx = 0, ty = 0, cx = 0, cy = 0;
-  const loop3d = () => { cx += (tx - cx) * .08; cy += (ty - cy) * .08; const b = base();
-    stage.style.transform = `rotateY(${b.y + cx * 26}deg) rotateX(${b.x - cy * 18}deg)`; glare.style.setProperty('--gx', (60 - cx * 60) + '%');
-    requestAnimationFrame(loop3d); };
-  if (!reduce) {
-    requestAnimationFrame(loop3d);
-    if (matchMedia('(pointer:fine)').matches) addEventListener('mousemove', e => { tx = e.clientX / innerWidth - .5; ty = e.clientY / innerHeight - .5; });
-    else {
-      addEventListener('deviceorientation', e => { if (e.gamma == null) return; tx = Math.max(-.5, Math.min(.5, e.gamma / 50)); ty = Math.max(-.5, Math.min(.5, (e.beta - 45) / 60)); });
-      addEventListener('scroll', () => { const r = stage.getBoundingClientRect(); ty = Math.max(-.5, Math.min(.5, (r.top + r.height / 2) / innerHeight - .5)); }, { passive: true });
-    }
-  }
+  // 📱 telefon bir marta animatsiya bilan chiqadi, keyin qimirlamaydi (CSS: .ready .stage)
+  const ph = document.getElementById('phone');
 
   // telefondagi lenta: postlar birin-ketin tushadi
   const POSTS = [

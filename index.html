@@ -131,13 +131,15 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 
 /* ================= 3D telefon sahnasi ================= */
 .phone-wrap{perspective:1400px;display:flex;justify-content:center;padding:20px 0}
-.stage{position:relative;transform-style:preserve-3d;transform:rotateY(-18deg) rotateX(8deg);will-change:transform}
-.phone{position:relative;width:300px;aspect-ratio:9/18.8;background:linear-gradient(145deg,#2e2e33,#0d0d0f);border-radius:46px;padding:9px;box-shadow:0 70px 100px -40px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.1);animation:bob 6s ease-in-out infinite;transform-style:preserve-3d}
-.phone::before{content:"";position:absolute;inset:0;border-radius:46px;transform:translateZ(-20px);background:#08080a}
-.phone::after{content:"";position:absolute;top:16px;left:50%;width:80px;height:22px;margin-left:-40px;border-radius:999px;background:#000;z-index:3}
+.stage{position:relative;opacity:0;transform:translateY(70px) rotateY(-32deg) rotateX(14deg) scale(.88)}
+.ready .stage{animation:phoneIn 1.3s cubic-bezier(.2,.9,.25,1) .15s forwards}
+@keyframes phoneIn{to{opacity:1;transform:rotateY(-12deg) rotateX(5deg)}}
 @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -14px}}
+@media(max-width:900px){@keyframes phoneIn{to{opacity:1;transform:rotateY(-6deg) rotateX(3deg)}}}
+.phone{position:relative;width:300px;aspect-ratio:9/18.8;background:linear-gradient(145deg,#2e2e33,#0d0d0f);border-radius:46px;padding:9px;box-shadow:0 70px 100px -40px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.1);}
+.phone::after{content:"";position:absolute;top:16px;left:50%;width:80px;height:22px;margin-left:-40px;border-radius:999px;background:#000;z-index:3}
 .screen{width:100%;height:100%;border-radius:38px;background:#F6F3EE;overflow:hidden;position:relative;color:#121212;font-size:11px}
-.glare{position:absolute;inset:9px;border-radius:38px;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.25) 48%,transparent 62%);background-size:250% 100%;background-position:var(--gx,60%) 0;mix-blend-mode:screen}
+.glare{position:absolute;inset:9px;border-radius:38px;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.25) 48%,transparent 62%);background-size:250% 100%;background-position:60% 0}
 .s-top{background:#FF5A1F;padding:40px 10px 12px;border-radius:0 0 20px 20px;display:flex;justify-content:space-between;align-items:center;color:#fff}
 .s-brand{display:flex;align-items:center;gap:6px}.s-brand b{display:block;font-family:var(--logo);font-weight:800;font-size:15px;letter-spacing:-.04em;line-height:1}.s-brand small{font-size:8px;opacity:.85;font-weight:700}
 .s-ics{display:flex;gap:4px}.s-ics i{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:10px}
@@ -174,16 +176,17 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 .s-dock .plus{width:28px;height:28px;padding:0;border-radius:50%;background:#FF5A1F;display:flex;align-items:center;justify-content:center;font-size:17px}
 .heart-pop{position:absolute;font-size:22px;pointer-events:none;animation:hp 1.2s ease-out forwards}
 @keyframes hp{0%{opacity:0;transform:scale(.4)}20%{opacity:1;transform:scale(1.2)}100%{opacity:0;transform:translateY(-60px)}}
-.fly{position:absolute;background:#fff;color:#121212;border-radius:16px;padding:10px 14px;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);pointer-events:none;animation:flyb 5s ease-in-out infinite}
+.fly{position:absolute;background:#fff;color:#121212;border-radius:16px;padding:10px 14px;font-size:13px;font-weight:600;white-space:nowrap;box-shadow:0 20px 40px -18px rgba(0,0,0,.5);pointer-events:none;opacity:0;transform:scale(.6)}
+.ready .fly{animation:flyIn .6s cubic-bezier(.3,1.4,.5,1) forwards}
+@keyframes flyIn{to{opacity:1;transform:none}}
 .fly b{font-weight:800}
-.f1{left:-110px;top:22%;transform:translateZ(90px);animation-delay:-1s}
-.f2{right:-120px;top:42%;transform:translateZ(130px);background:#121212;color:#fff;animation-delay:-2.5s}
-.f3{left:-80px;bottom:16%;transform:translateZ(60px);background:#FFC531;animation-delay:-.5s}
-.f4{right:-90px;top:8%;transform:translateZ(40px);background:#D62F6B;color:#fff;animation-delay:-3.5s}
-@keyframes flyb{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.f1{left:-110px;top:22%;animation-delay:1.2s!important}
+.f2{right:-120px;top:42%;background:#121212;color:#fff;animation-delay:1.4s!important}
+.f3{left:-80px;bottom:16%;background:#FFC531;animation-delay:1.6s!important}
+.f4{right:-90px;top:8%;background:#D62F6B;color:#fff;animation-delay:1.8s!important}
 .orb{position:absolute;border-radius:50%;pointer-events:none}
-.o1{width:70px;height:70px;left:-40px;top:-6px;background:radial-gradient(circle at 30% 30%,#fff,#FFC531 45%,#E08A00);transform:translateZ(-60px);animation:flyb 7s ease-in-out infinite}
-.o2{width:46px;height:46px;right:-24px;bottom:6%;background:radial-gradient(circle at 30% 30%,#fff,#D62F6B 50%,#7a1238);transform:translateZ(150px);animation:flyb 6s ease-in-out infinite -2s}
+.o1{width:70px;height:70px;left:-40px;top:-6px;background:radial-gradient(circle at 30% 30%,#fff,#FFC531 45%,#E08A00);z-index:-1}
+.o2{width:46px;height:46px;right:-24px;bottom:6%;background:radial-gradient(circle at 30% 30%,#fff,#D62F6B 50%,#7a1238);}
 
 /* ================= Lenta (marquee) ================= */
 .marq{overflow:hidden;background:#121212;color:#fff;padding:18px 0;margin-top:-30px;position:relative;z-index:2;transform:rotate(-1.5deg)}
@@ -283,8 +286,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
 
 /* ================= Moslashuvchan ================= */
 @media(max-width:980px){.hero-grid,.play,.qd,.star,.founder{grid-template-columns:minmax(0,1fr)}.bento{grid-template-columns:minmax(0,1fr)}.c2,.c4{grid-column:auto}.games{grid-template-columns:repeat(3,minmax(0,1fr))}.phone{width:270px}.f1{left:-40px}.f2{right:-40px}.f3{left:-30px}.f4{right:-30px}.hero{padding-top:96px}}
-@media(max-width:560px){.games{grid-template-columns:repeat(2,minmax(0,1fr))}.perks{grid-template-columns:minmax(0,1fr)}.f2,.f4,.o2{display:none}.fly{font-size:11px;padding:8px 10px}.f1{left:-6px}.f3{left:-2px}.nav .btn{padding:0 14px}.brand b{font-size:22px}.stats{gap:20px}.stats div b{font-size:22px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.m,.qa,.sys,.h1 .w,.h1 .hl{opacity:1!important;transform:none!important}}
+@media(max-width:560px){.games{grid-template-columns:repeat(2,minmax(0,1fr))}.perks{grid-template-columns:minmax(0,1fr)}.f2,.f4,.o2{display:none}.fly{font-size:11px;padding:8px 10px}.f1{left:-6px;top:52%}.f3{left:-2px}.nav .btn{padding:0 14px}.brand b{font-size:22px}.stats{gap:20px}.stats div b{font-size:22px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv,.m,.qa,.sys,.h1 .w,.h1 .hl,.fly{opacity:1!important;transform:none!important}.stage{opacity:1!important;transform:rotateY(-6deg)!important}}
 </style>
 </head>
 <body>
@@ -324,7 +327,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
     <div class="phone-wrap" aria-hidden="true">
       <div class="stage" id="stage">
         <div class="phone" id="phone"><div class="screen">
-          <div class="s-top"><span class="s-brand"><svg viewBox="0 0 100 100" width="20" height="20"><path d="M14 12a8 8 0 0 1 8-8h14a8 8 0 0 1 8 8v46h34a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H30L14 98z" fill="#fff"/><circle cx="72" cy="30" r="13" fill="#121212"/></svg><span><b>lahzam</b><small>v1.12</small></span></span><span class="s-ics"><i>⌕</i><i>🔔</i><i>☾</i><i class="me">A</i></span></div>
+          <div class="s-top"><span class="s-brand"><svg viewBox="0 0 100 100" width="20" height="20"><path d="M14 12a8 8 0 0 1 8-8h14a8 8 0 0 1 8 8v46h34a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H30L14 98z" fill="#fff"/><circle cx="72" cy="30" r="13" fill="#121212"/></svg><span><b>lahzam</b><small>v1.13</small></span></span><span class="s-ics"><i>⌕</i><i>🔔</i><i>☾</i><i class="me">A</i></span></div>
           <div class="s-lz"><span class="lz add"><i>+</i><em>Lahza</em></span><span class="lz"><i style="background:#FFD9C7">M</i><em>Madina</em></span><span class="lz"><i style="background:#D9F2E6">J</i><em>Jasur</em></span><span class="lz"><i style="background:#E3E8FF">A</i><em>Aziza</em></span><span class="lz seen"><i style="background:#FFF0C2">B</i><em>Bekzod</em></span></div>
           <div class="s-q"><small>✦ KUN SAVOLI</small><b>Bugun sizni nima xursand qildi?</b><span class="s-qin">Javobingizni yozing… <i>➤</i></span></div>
           <div class="feed" id="feed"></div>
