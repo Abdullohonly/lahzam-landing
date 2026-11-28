@@ -23,9 +23,11 @@
 <meta name="twitter:title" content="Lahzam — Har lahza yoningizda!">
 <meta name="twitter:description" content="O‘zbekcha ijtimoiy tarmoq: fikrlar, Lahzalar, guruhlar, chat va o‘yinlar.">
 <meta name="twitter:image" content="https://lahzam.uz/og.png">
-<link rel="apple-touch-icon" href="/og.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lahzam.uz/#org","name":"Lahzam","url":"https://lahzam.uz/","logo":"https://lahzam.uz/icon.svg"},{"@type":"WebSite","@id":"https://lahzam.uz/#site","name":"Lahzam","url":"https://lahzam.uz/","inLanguage":"uz","publisher":{"@id":"https://lahzam.uz/#org"}},{"@type":"WebApplication","name":"Lahzam","url":"https://app.lahzam.uz/","applicationCategory":"SocialNetworkingApplication","operatingSystem":"Android, iOS, Windows, macOS","inLanguage":"uz","offers":{"@type":"Offer","price":"0","priceCurrency":"UZS"},"description":"O‘zbekcha ijtimoiy tarmoq: Ochiq maydon, Lahzalar, guruhlar, shaxsiy chat, Kun savoli va mini o‘yinlar."}]}</script>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lahzam.uz/#org","name":"Lahzam","url":"https://lahzam.uz/","logo":{"@type":"ImageObject","url":"https://lahzam.uz/icon-512.png","width":512,"height":512}},{"@type":"WebSite","@id":"https://lahzam.uz/#site","name":"Lahzam","alternateName":["lahzam.uz","Lahzam ijtimoiy tarmoq"],"url":"https://lahzam.uz/","inLanguage":"uz","publisher":{"@id":"https://lahzam.uz/#org"}},{"@type":"WebApplication","name":"Lahzam","url":"https://app.lahzam.uz/","applicationCategory":"SocialNetworkingApplication","operatingSystem":"Android, iOS, Windows, macOS","inLanguage":"uz","offers":{"@type":"Offer","price":"0","priceCurrency":"UZS"},"description":"O‘zbekcha ijtimoiy tarmoq: Ochiq maydon, Lahzalar, guruhlar, shaxsiy chat, Kun savoli va mini o‘yinlar."}]}</script>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon-96.png" type="image/png" sizes="96x96">
 <script src="/theme.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +98,10 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opa
 .nav.scrolled .brand{color:var(--ink)}
 .brand b{font-family:var(--logo);font-weight:800;font-size:25px;letter-spacing:-.045em}
 .nav-r{display:flex;gap:8px;align-items:center}
+.nav-links{display:flex;gap:2px;margin:0 auto 0 26px}.nav-links a{text-decoration:none;font-weight:600;font-size:15px;padding:8px 12px;border-radius:12px;color:#fff;opacity:.85;white-space:nowrap}.nav-links a:hover{opacity:1;background:rgba(255,255,255,.14)}
+.nav.scrolled .nav-links a{color:var(--ink)}.nav.scrolled .nav-links a:hover{background:var(--surface2)}
+.foot-links{width:100%;order:-1}.foot-links a{font-weight:600}
+@media(max-width:1000px){.nav-links{display:none}}
 .nav.scrolled .icon-btn{background:var(--surface2);color:var(--ink)}
 .nav .btn{height:46px;padding:0 20px;font-size:15px;border-radius:14px}
 .nav.scrolled .btn.white{background:var(--ink);color:var(--bg)}
@@ -301,9 +307,10 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
   <a class="brand" href="/" aria-label="Lahzam bosh sahifa">
     <svg viewBox="0 0 100 100" width="32" height="32" aria-hidden="true"><path d="M14 12a8 8 0 0 1 8-8h14a8 8 0 0 1 8 8v46h34a8 8 0 0 1 8 8v14a8 8 0 0 1-8 8H30L14 98z" fill="currentColor"/><circle cx="72" cy="30" r="13" fill="#FF5A1F"/></svg><b>lahzam</b>
   </a>
+  <div class="nav-links" aria-label="Bo‘limlar"><a href="/oyinlar">O‘yinlar</a><a href="/guruhlar">Guruhlar</a><a href="/shaxsiy-chat">Shaxsiy chat</a><a href="/kun-savoli">Kun savoli</a><a href="/tanishish">Tanishish</a></div>
   <div class="nav-r">
     <button class="icon-btn" id="themeBtn" type="button" aria-label="Tungi rejimni almashtirish">🌙</button>
-    <a class="btn white" data-app="/kirish" href="#">Kirish</a>
+    <a class="btn white" href="/kirish">Kirish</a>
   </div>
 </nav>
 
@@ -315,7 +322,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
       <h1 class="h1"><span class="w">Har</span> <span class="w" style="animation-delay:.1s">lahza</span><br><span class="w hl" style="animation-delay:.2s">yoningizda!</span></h1>
       <p class="lead">Lahzam — o‘zbekcha ijtimoiy tarmoq. Bu yerda <span class="rot" id="rot"><span class="on">fikr yozasiz</span><span>lahza ulashasiz</span><span>guruhda gaplashasiz</span><span>do‘st topasiz</span><span>o‘yin o‘ynaysiz</span></span></p>
       <div class="ctas">
-        <a class="btn dark mag" data-app="/kirish" href="#">Bepul qo‘shilish →</a>
+        <a class="btn dark mag" data-app="/kirish" href="https://lahzam-app.vercel.app/kirish">Bepul qo‘shilish →</a>
         <a class="btn line mag" href="#imkoniyatlar">Nimasi bor?</a>
       </div>
       <div class="stats" aria-label="Lahzam raqamlarda">
@@ -428,7 +435,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
       <div>
         <h2>Birinchi 50 kishi — umrbod Asoschi</h2>
         <p class="sub">Lahzamga eng birinchi qo‘shilganlarning profilida doimiy “Asoschi” belgisi turadi. Bu belgini keyin hech kim ola olmaydi.</p>
-        <p style="margin:26px 0 0"><a class="btn dark mag" data-app="/kirish" href="#">O‘rnimni egallash →</a></p>
+        <p style="margin:26px 0 0"><a class="btn dark mag" data-app="/kirish" href="https://lahzam-app.vercel.app/kirish">O‘rnimni egallash →</a></p>
       </div>
       <span class="badge-big">Asoschi</span>
     </div>
@@ -437,7 +444,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--acc)}
 
 <div class="wrap"><footer>
   <span>© 2026 Lahzam — Har lahza yoningizda!</span>
-  <span><a data-app="/" href="#">Ilovani ochish</a> · <a data-app="/shartlar" href="#">Shartlar</a> · <a data-app="/maxfiylik" href="#">Maxfiylik</a></span>
+  <nav class="foot-links" aria-label="Bo‘limlar"><a href="/tanishish">Tanishish</a> · <a href="/oyinlar">O‘yinlar</a> · <a href="/guruhlar">Guruhlar</a> · <a href="/shaxsiy-chat">Shaxsiy chat</a> · <a href="/kun-savoli">Kun savoli</a> · <a href="/kirish">Kirish</a></nav>
+  <span><a data-app="/" href="https://lahzam-app.vercel.app/">Ilovani ochish</a> · <a data-app="/shartlar" href="https://lahzam-app.vercel.app/shartlar">Shartlar</a> · <a data-app="/maxfiylik" href="https://lahzam-app.vercel.app/maxfiylik">Maxfiylik</a></span>
 </footer></div>
 <script src="/main.js" defer></script>
 </body>
