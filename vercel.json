@@ -35,5 +35,18 @@
     }
   ],
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "lahzam-landing-my-group1.vercel.app"
+        }
+      ],
+      "destination": "https://lahzam.uz/:path*",
+      "permanent": true
+    }
+  ]
 }

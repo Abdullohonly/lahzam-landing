@@ -1,5 +1,5 @@
 {
-  const APP_URL = 'https://lahzam-app.vercel.app'; // domen faollashgach: https://app.lahzam.uz
+  const APP_URL = 'https://app.lahzam.uz';
   for (const a of document.querySelectorAll('[data-app]')) a.href = APP_URL + a.dataset.app;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
